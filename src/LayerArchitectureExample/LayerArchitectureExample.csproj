@@ -4,7 +4,7 @@
     <ProjectName>LayerArchitectureExample</ProjectName>
     <Author>Timo Heller</Author>
     <GitHubUrl>https://github.com/timoheller99/LayerArchitectureExample</GitHubUrl>
-    <Version>1.0.0-alpha.4</Version>
+    <Version>1.0.0-alpha.5</Version>
   </PropertyGroup>
 
   <PropertyGroup>
