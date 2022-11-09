@@ -63,6 +63,7 @@ jobs:
         working-directory: "./src"
         run: |
           declare -a Projects=(
+          "LayerArchitectureExample.Core.Logging"
           )
           
           for project in ${Projects[@]}; do
