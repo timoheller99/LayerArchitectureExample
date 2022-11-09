@@ -59,9 +59,6 @@ jobs:
       - name: "Install CI-Tools"
         run: sudo npm install --location=global @process-engine/ci_tools@${{env.CI_TOOLS_VERSION}}
 
-      - name: "Install dotnet-outdated-tool"
-        run: dotnet tool install --global dotnet-outdated-tool --version 4.1.0
-
       - name: "Process projects"
         working-directory: "./src"
         run: |
