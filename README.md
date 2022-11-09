@@ -34,4 +34,5 @@ I have a lot of ideas to implement in the future.
 1. Clone the repository and made sure it compiles
 2. Make sure that docker is running to set up the local test environment
 3. To set up the local test environment, execute the bash script `scripts/init.sh` or `scripts/reset.sh` to setup the local test environment.
-4. Currently there is only a database server available. So you can connect to the database with localhost:3306 and have a look at the database.
+
+* Currently there are only a database and ElasticSearch/Kibana server available. So you can connect to the database with localhost:3306 and have a look at the database or execute the integration tests and look at the logs in [Kibana](http://localhost:5601/app/discover)
