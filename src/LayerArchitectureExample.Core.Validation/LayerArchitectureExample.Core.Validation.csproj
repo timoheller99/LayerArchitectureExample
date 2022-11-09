@@ -4,7 +4,7 @@
     <ProjectName>LayerArchitectureExample.Core.Validation</ProjectName>
     <Author>Timo Heller</Author>
     <GitHubUrl>https://github.com/timoheller99/LayerArchitectureExample</GitHubUrl>
-    <Version>1.0.0-alpha.8</Version>
+    <Version>1.0.0-alpha.9</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
