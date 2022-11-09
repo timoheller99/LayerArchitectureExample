@@ -1,0 +1,125 @@
+name: Release CI
+
+on: push
+
+env:
+  PROJECT_NAME: "LayerArchitectureExample"
+  DOTNET_VERSION: "6.0.x"
+  CI_TOOLS_VERSION: "3.3.2"
+  GITHUB_USERNAME: ${{ secrets.GH_CI_USER_NAME }}
+  NUGET_TOKEN: ${{ secrets.NUGET_TOKEN }}
+
+jobs:
+  # Ensures solution can be compiled and tests are successful.
+  build:
+    # Not on develop/beta/main push
+    if: ${{ !(contains(github.ref, 'develop') && !contains(github.ref, 'beta') && !contains(github.ref, 'main')) }}
+    env:
+      DOTNET_NOLOGO: true
+      DOTNET_CLI_TELEMETRY_OPTOUT: 1
+    name: "Build sources"
+    runs-on: ubuntu-18.04
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: "Setup .NET"
+        uses: actions/setup-dotnet@v1.9.0
+        with:
+          dotnet-version: ${{env.DOTNET_VERSION}}
+
+      - name: "Restore dependencies"
+        run: dotnet restore
+
+      - name: "Build sources"
+        run: dotnet build --no-restore
+
+      - name: "Test sources"
+        # Only executes tests in projects that contain "UnitTests" in their name.
+        run: dotnet test --filter 'FullyQualifiedName~UnitTests'
+
+  # Update version, publishes NuGet packages and create GitHub release for defined projects.
+  create-release:
+    # Only on develop/beta/main and if push didn't come from CI commit
+    if: ${{ (contains(github.ref, 'develop') || contains(github.ref, 'beta') || contains(github.ref, 'main')) && !contains(github.event.head_commit.message, 'skip ci') }}
+    env:
+      DOTNET_NOLOGO: true
+      DOTNET_CLI_TELEMETRY_OPTOUT: 1
+    name: "Create release"
+    runs-on: ubuntu-18.04
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: "Setup .NET"
+        uses: actions/setup-dotnet@v1.9.0
+        with:
+          dotnet-version: ${{env.DOTNET_VERSION}}
+
+      - name: "Install CI-Tools"
+        run: sudo npm install --location=global @process-engine/ci_tools@${{env.CI_TOOLS_VERSION}}
+
+      - name: "Install dotnet-outdated-tool"
+        run: dotnet tool install --global dotnet-outdated-tool --version 4.1.0
+
+      - name: "Process projects"
+        working-directory: "./src"
+        run: |
+          declare -a Projects=(
+          )
+          
+          for project in ${Projects[@]}; do
+            if [ -d "$project" ]; then
+              cd "$project" || continue
+          
+              sleep 5
+
+              echo "Process project ${project}..."
+          
+              ci_tools prepare-version --allow-dirty-workdir --mode dotnet
+          
+              dotnet build -c Release
+          
+              mkdir -p artifacts/nuget
+              find . -name '*.nupkg' -exec cp {} ./artifacts/nuget \;
+          
+              for nugetFile in ./artifacts/nuget/*.nupkg; do
+                NUGET_ARTIFACT_PATH=$(readlink -f "${nugetFile}")
+                echo "Pushing ${NUGET_ARTIFACT_PATH} ..."
+          
+                dotnet nuget push ${NUGET_ARTIFACT_PATH} -s github --skip-duplicate
+              done
+          
+              cd ..
+            fi
+          done
+
+      - name: "Prepare version"
+        working-directory: "./src/${{env.PROJECT_NAME}}"
+        run: |
+          ci_tools prepare-version --allow-dirty-workdir --mode dotnet
+
+      - name: 'Build sources'
+        run: dotnet build -c Release
+
+      - name: "Set git config"
+        run: |
+          git config user.name "${{ secrets.GH_CI_USER_NAME }}"
+          git config user.email "${{ secrets.GH_CI_USER_EMAIL }}"
+
+      - name: "Commit & tag version"
+        env:
+          GH_USER: ${{ secrets.GH_CI_USER_NAME }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git add **/*.csproj
+          cd src/${{env.PROJECT_NAME}}
+          ci_tools commit-and-tag-version --only-on-primary-branches --mode dotnet
+
+      - name: "Create github release"
+        working-directory: "./src/${{env.PROJECT_NAME}}"
+        env:
+          GH_USER: ${{ secrets.GH_CI_USER_NAME }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          ci_tools update-github-release --only-on-primary-branches --use-title-and-text-from-git-tag --mode dotnet
