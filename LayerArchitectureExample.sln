@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0F6E9496-5990-463F-BC02-4613EEC954BB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LayerArchitectureExample", "src\LayerArchitectureExample\LayerArchitectureExample.csproj", "{B940F916-8DFE-478A-8622-CF2EE9BFE126}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataAccess", "DataAccess", "{BD53716F-E6F3-4249-BA34-515799C820B4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LayerArchitectureExample.DataAccess.Contracts", "src\LayerArchitectureExample.DataAccess.Contracts\LayerArchitectureExample.DataAccess.Contracts.csproj", "{685705B0-2CC1-4273-A70C-6EF167F40D53}"
@@ -20,10 +18,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B940F916-8DFE-478A-8622-CF2EE9BFE126}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B940F916-8DFE-478A-8622-CF2EE9BFE126}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B940F916-8DFE-478A-8622-CF2EE9BFE126}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B940F916-8DFE-478A-8622-CF2EE9BFE126}.Release|Any CPU.Build.0 = Release|Any CPU
 		{685705B0-2CC1-4273-A70C-6EF167F40D53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{685705B0-2CC1-4273-A70C-6EF167F40D53}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{685705B0-2CC1-4273-A70C-6EF167F40D53}.Release|Any CPU.ActiveCfg = Release|Any CPU
