@@ -4,7 +4,7 @@
     <ProjectName>LayerArchitectureExample.DataAccess.Validation</ProjectName>
     <Author>Timo Heller</Author>
     <GitHubUrl>https://github.com/timoheller99/LayerArchitectureExample</GitHubUrl>
-    <Version>1.0.0-alpha.6</Version>
+    <Version>1.0.0-alpha.7</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
