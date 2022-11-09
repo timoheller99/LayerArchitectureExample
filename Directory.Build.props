@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Project>
+  <PropertyGroup>
+    <RuleSetFilePath>$(MSBuildThisFileDirectory)\analyzer.ruleset</RuleSetFilePath>
+    <JsonFilePath>$(MSBuildThisFileDirectory)\stylecop.json</JsonFilePath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <CodeAnalysisRuleSet>$(RuleSetFilePath)</CodeAnalysisRuleSet>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Include="$(JsonFilePath)" Link="stylecop.json" />
+  </ItemGroup>
+
+  <Target Name="LogRulesetPath" AfterTargets="Build">
+    <Message Text="$(AssemblyName): Path to ruleset-file =  '$(RuleSetFilePath)'" Importance="High" />
+    <Message Text="$(AssemblyName): Path to json-file =  '$(JsonFilePath)'" Importance="High" />
+  </Target>
+
+</Project>

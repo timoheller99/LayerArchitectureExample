@@ -1,0 +1,66 @@
+<Project>
+  <!--All projects should have the analyzer packages-->
+  <ItemGroup>
+    <PackageReference Include="Meziantou.Analyzer" Version="1.0.702">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Threading.Analyzers" Version="17.2.32">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118" />
+  </ItemGroup>
+
+  <Choose>
+    <When Condition="$(AssemblyName.Contains('Test'))">
+      <PropertyGroup>
+        <!--VSTHRD200: Test methods are async but won't have the 'Async' suffix in the method name.-->
+        <NoWarn>VSTHRD200;CS1591;SA0001</NoWarn>
+        <IsPackable>false</IsPackable>
+      </PropertyGroup>
+
+      <!--Packages for all test projects-->
+      <ItemGroup>
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.2.0" />
+        <PackageReference Include="xunit" Version="2.4.1" />
+        <PackageReference Include="xunit.runner.visualstudio" Version="2.4.5">
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="xunit.analyzers" Version="0.10.0" />
+        <PackageReference Include="coverlet.collector" Version="3.1.2">
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+          <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="FluentAssertions" Version="6.7.0" />
+        <PackageReference Include="FluentAssertions.Analyzers" Version="0.17.2">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+      </ItemGroup>
+
+      <ItemGroup>
+        <Content Include="..\..\xunit.runner.json">
+          <Link>xunit.runner.json</Link>
+          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
+      </ItemGroup>
+    </When>
+
+    <Otherwise>
+    </Otherwise>
+  </Choose>
+
+  <Choose>
+    <When Condition="$(AssemblyName.Contains('UnitTests'))">
+      <!--Packages for all unit test projects-->
+      <ItemGroup>
+        <PackageReference Include="Moq" Version="4.17.2" />
+      </ItemGroup>
+    </When>
+
+    <Otherwise>
+    </Otherwise>
+  </Choose>
+</Project>
