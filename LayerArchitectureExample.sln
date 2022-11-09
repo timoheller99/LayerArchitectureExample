@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LayerArchitectureExample.Co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LayerArchitectureExample.DataAccess.Validation", "src\LayerArchitectureExample.DataAccess.Validation\LayerArchitectureExample.DataAccess.Validation.csproj", "{B503F36D-51F5-4645-AF03-1C2088929798}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LayerArchitectureExample.DataAccess", "src\LayerArchitectureExample.DataAccess\LayerArchitectureExample.DataAccess.csproj", "{C9B7FCF3-8B67-4302-9CF4-6A871DF34056}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,6 +44,10 @@ Global
 		{B503F36D-51F5-4645-AF03-1C2088929798}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B503F36D-51F5-4645-AF03-1C2088929798}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B503F36D-51F5-4645-AF03-1C2088929798}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9B7FCF3-8B67-4302-9CF4-6A871DF34056}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9B7FCF3-8B67-4302-9CF4-6A871DF34056}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9B7FCF3-8B67-4302-9CF4-6A871DF34056}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9B7FCF3-8B67-4302-9CF4-6A871DF34056}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{BD53716F-E6F3-4249-BA34-515799C820B4} = {0F6E9496-5990-463F-BC02-4613EEC954BB}
@@ -49,5 +55,6 @@ Global
 		{2F122344-6F6E-4B8A-A4AC-5C00619B86E6} = {805F2391-9C50-4F13-B81A-F5517BC40208}
 		{407AA185-2BAA-4D33-A113-B19BC917B363} = {805F2391-9C50-4F13-B81A-F5517BC40208}
 		{B503F36D-51F5-4645-AF03-1C2088929798} = {BD53716F-E6F3-4249-BA34-515799C820B4}
+		{C9B7FCF3-8B67-4302-9CF4-6A871DF34056} = {BD53716F-E6F3-4249-BA34-515799C820B4}
 	EndGlobalSection
 EndGlobal

@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <ProjectName>LayerArchitectureExample.DataAccess</ProjectName>
+    <Author>Timo Heller</Author>
+    <GitHubUrl>https://github.com/timoheller99/LayerArchitectureExample</GitHubUrl>
+    <Version>1.0.0-alpha.3</Version>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <LangVersion>10</LangVersion>
+    <ImplicitUsings>false</ImplicitUsings>
+    <Title>$(ProjectName)</Title>
+    <RootNamespace>$(ProjectName)</RootNamespace>
+    <AssemblyName>$(ProjectName)</AssemblyName>
+    <PackageId>$(ProjectName)</PackageId>
+    <Description>$(ProjectName)</Description>
+    <Authors>$(Author)</Authors>
+    <Copyright>$(Author)</Copyright>
+    <PackageProjectUrl>$(GitHubUrl)</PackageProjectUrl>
+    <RepositoryUrl>$(GitHubUrl)</RepositoryUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.0.123" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
+    <PackageReference Include="MySqlConnector" Version="2.1.13" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LayerArchitectureExample.Core.Logging\LayerArchitectureExample.Core.Logging.csproj" />
+    <ProjectReference Include="..\LayerArchitectureExample.DataAccess.Contracts\LayerArchitectureExample.DataAccess.Contracts.csproj" />
+    <ProjectReference Include="..\LayerArchitectureExample.DataAccess.Validation\LayerArchitectureExample.DataAccess.Validation.csproj" />
+  </ItemGroup>
+
+</Project>
