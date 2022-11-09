@@ -6,6 +6,7 @@ using System.Reflection;
 
 using LayerArchitectureExample.DataAccess.Contracts.Core;
 
+// TODO: Try out Dapper.SqlBuilder
 public class MySqlQueryGenerator<TIdType, TDbModel> : ISqlQueryGenerator
 {
     private const string IdConditionText = $"{nameof(IDbModel<TIdType>.Id)}=@{nameof(IDbModel<TIdType>.Id)}";
