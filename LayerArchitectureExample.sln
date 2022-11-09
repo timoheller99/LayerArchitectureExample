@@ -19,6 +19,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LayerArchitectureExample.Da
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LayerArchitectureExample.DataAccess", "src\LayerArchitectureExample.DataAccess\LayerArchitectureExample.DataAccess.csproj", "{C9B7FCF3-8B67-4302-9CF4-6A871DF34056}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{EDB82215-CE9D-4518-8987-F39F6F7258DF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataAccess", "DataAccess", "{CE5A3B8A-A8BA-40CE-B0C8-FE32177E0C7D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LayerArchitectureExample.DataAccess.TestHelpers", "test\LayerArchitectureExample.DataAccess.TestHelpers\LayerArchitectureExample.DataAccess.TestHelpers.csproj", "{0C253C34-C53F-4C42-A9B8-95668F812D0A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,6 +54,10 @@ Global
 		{C9B7FCF3-8B67-4302-9CF4-6A871DF34056}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C9B7FCF3-8B67-4302-9CF4-6A871DF34056}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C9B7FCF3-8B67-4302-9CF4-6A871DF34056}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C253C34-C53F-4C42-A9B8-95668F812D0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C253C34-C53F-4C42-A9B8-95668F812D0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C253C34-C53F-4C42-A9B8-95668F812D0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C253C34-C53F-4C42-A9B8-95668F812D0A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{BD53716F-E6F3-4249-BA34-515799C820B4} = {0F6E9496-5990-463F-BC02-4613EEC954BB}
@@ -56,5 +66,7 @@ Global
 		{407AA185-2BAA-4D33-A113-B19BC917B363} = {805F2391-9C50-4F13-B81A-F5517BC40208}
 		{B503F36D-51F5-4645-AF03-1C2088929798} = {BD53716F-E6F3-4249-BA34-515799C820B4}
 		{C9B7FCF3-8B67-4302-9CF4-6A871DF34056} = {BD53716F-E6F3-4249-BA34-515799C820B4}
+		{CE5A3B8A-A8BA-40CE-B0C8-FE32177E0C7D} = {EDB82215-CE9D-4518-8987-F39F6F7258DF}
+		{0C253C34-C53F-4C42-A9B8-95668F812D0A} = {CE5A3B8A-A8BA-40CE-B0C8-FE32177E0C7D}
 	EndGlobalSection
 EndGlobal
