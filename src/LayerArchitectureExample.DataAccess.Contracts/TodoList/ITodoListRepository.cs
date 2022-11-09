@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 using LayerArchitectureExample.DataAccess.Contracts.Core;
 
-public interface ITodoListRepository : IGenericRepository<Guid, TodoListDbEntity>
+public interface ITodoListRepository : IGenericRepository<Guid, TodoListDbModel>
 {
-    public Task<TodoListDbEntity> GetByNameAsync(string name);
+    public Task<TodoListDbModel> GetByNameAsync(string name);
 
-    public Task<TodoListDbEntity> GetByNameAsync(string name, IDbConnection connection);
+    public Task<TodoListDbModel> GetByNameAsync(string name, IDbConnection connection);
 
-    public Task<TodoListDbEntity> GetByNameAsync(string name, IDbConnection connection, IDbTransaction transaction);
+    public Task<TodoListDbModel> GetByNameAsync(string name, IDbConnection connection, IDbTransaction transaction);
 }

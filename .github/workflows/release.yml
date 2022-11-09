@@ -63,6 +63,9 @@ jobs:
         working-directory: "./src"
         run: |
           declare -a Projects=(
+          "LayerArchitectureExample.Core.Validation"
+          "LayerArchitectureExample.DataAccess.Contracts"
+          "LayerArchitectureExample.DataAccess.Validation"
           "LayerArchitectureExample.Core.Logging"
           )
           

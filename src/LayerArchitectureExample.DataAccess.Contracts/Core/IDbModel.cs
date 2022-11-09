@@ -1,6 +1,6 @@
 ﻿namespace LayerArchitectureExample.DataAccess.Contracts.Core;
 
-public interface IDbEntity<TIdType>
+public interface IDbModel<TIdType>
 {
     public TIdType Id { get; set; }
 }

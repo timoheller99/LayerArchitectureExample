@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <ProjectName>LayerArchitectureExample.DataAccess.Contracts</ProjectName>
+    <ProjectName>LayerArchitectureExample.DataAccess.Validation</ProjectName>
     <Author>Timo Heller</Author>
     <GitHubUrl>https://github.com/timoheller99/LayerArchitectureExample</GitHubUrl>
     <Version>1.0.0-alpha.3</Version>
@@ -22,5 +22,14 @@
     <PackageProjectUrl>$(GitHubUrl)</PackageProjectUrl>
     <RepositoryUrl>$(GitHubUrl)</RepositoryUrl>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LayerArchitectureExample.Core.Validation\LayerArchitectureExample.Core.Validation.csproj" />
+    <ProjectReference Include="..\LayerArchitectureExample.DataAccess.Contracts\LayerArchitectureExample.DataAccess.Contracts.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
+  </ItemGroup>
 
 </Project>
