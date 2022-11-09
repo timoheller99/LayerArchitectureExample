@@ -67,6 +67,7 @@ jobs:
           "LayerArchitectureExample.DataAccess.Contracts"
           "LayerArchitectureExample.DataAccess.Validation"
           "LayerArchitectureExample.Core.Logging"
+          "LayerArchitectureExample.DataAccess"
           )
           
           for project in ${Projects[@]}; do
