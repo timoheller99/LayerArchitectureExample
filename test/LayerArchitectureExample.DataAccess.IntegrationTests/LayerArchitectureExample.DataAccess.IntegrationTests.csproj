@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <ProjectName>LayerArchitectureExample.DataAccess.IntegrationTests</ProjectName>
+    <Author>Timo Heller</Author>
+    <GitHubUrl>https://github.com/timoheller99/LayerArchitectureExample</GitHubUrl>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <LangVersion>10</LangVersion>
+    <ImplicitUsings>false</ImplicitUsings>
+    <Title>$(ProjectName)</Title>
+    <RootNamespace>$(ProjectName)</RootNamespace>
+    <AssemblyName>$(ProjectName)</AssemblyName>
+    <PackageId>$(ProjectName)</PackageId>
+    <Description>$(ProjectName)</Description>
+    <Authors>$(Author)</Authors>
+    <Copyright>$(Author)</Copyright>
+    <PackageProjectUrl>$(GitHubUrl)</PackageProjectUrl>
+    <RepositoryUrl>$(GitHubUrl)</RepositoryUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\LayerArchitectureExample.DataAccess\LayerArchitectureExample.DataAccess.csproj" />
+    <ProjectReference Include="..\LayerArchitectureExample.DataAccess.TestHelpers\LayerArchitectureExample.DataAccess.TestHelpers.csproj" />
+  </ItemGroup>
+
+</Project>
