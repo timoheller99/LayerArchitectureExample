@@ -4,6 +4,7 @@ using System;
 
 using LayerArchitectureExample.DataAccess.Contracts.Core;
 
+[EntityName("Todo")]
 public class TodoDbModel : IDbModel<Guid>
 {
     public Guid Id { get; set; }

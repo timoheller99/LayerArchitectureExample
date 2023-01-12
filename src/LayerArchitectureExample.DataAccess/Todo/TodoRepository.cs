@@ -27,7 +27,7 @@ public class TodoRepository : GenericRepository<TodoRepository, TodoDbModel>, IT
     private readonly string selectByTodoListIdQuery;
 
     public TodoRepository(IDbConnectionFactory dbConnectionFactory, ITodoSqlQueryGenerator sqlQueryGenerator, IValidationService<TodoDbModel> validationService, ILogger<TodoRepository> logger)
-        : base(dbConnectionFactory, sqlQueryGenerator, validationService, logger, "Todo")
+        : base(dbConnectionFactory, sqlQueryGenerator, validationService, logger, EntityNameHelper.GetEntityName<TodoDbModel>())
     {
         this.selectByNameQuery = sqlQueryGenerator.GenerateSelectByNameQuery();
         this.selectByTodoListIdQuery = sqlQueryGenerator.GenerateSelectByTodoListIdQuery();

@@ -24,7 +24,7 @@ public class TodoListRepository : GenericRepository<TodoListRepository, TodoList
     private readonly string selectByNameQuery;
 
     public TodoListRepository(IDbConnectionFactory dbConnectionFactory, ITodoListSqlQueryGenerator sqlQueryGenerator, IValidationService<TodoListDbModel> validationService, ILogger<TodoListRepository> logger)
-        : base(dbConnectionFactory, sqlQueryGenerator, validationService, logger, "TodoList")
+        : base(dbConnectionFactory, sqlQueryGenerator, validationService, logger, EntityNameHelper.GetEntityName<TodoListDbModel>())
     {
         this.selectByNameQuery = sqlQueryGenerator.GenerateSelectByNameQuery();
     }
